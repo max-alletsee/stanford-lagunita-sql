@@ -30,7 +30,40 @@ The course comes with a quick guide that shows how to install SQLite, MySQL, and
 
 ## Exercises
 
+The course consists of six sets of exercises with two different data sets.
+
+The "solutions without code" files show only the expected result set *without* showing the code. They can be used to check if your own code leads to the correct result.
+
 *under construction.*
+
+1. Movie Ratings: Query Exercises
+    * [Exercises](exercises/ex1_movie_queries.sql)
+    * Solutions without code: *under construction.*
+    * Solutions with code: *under construction.*
+2. Movie Ratings: Extra Query Exercises
+    * [Exercises](exercises/ex2_movie_queries_extra.sql)
+    * Solutions without code: *under construction.*
+    * Solutions with code: *under construction.*
+3. Social Network: Query Exercises
+    * Exercises
+    * Solutions without code: *under construction.*
+    * Solutions with code: *under construction.*
+4. Social Network: Extra Query Exercises
+    * Exercises
+    * Solutions without code: *under construction.*
+    * Solutions with code: *under construction.*
+5. Movie Ratings: Modification Exercises
+    * [Exercises](exercises/ex5_movie_modifications.sql)
+    * Solutions without code: *under construction.*
+    * Solutions with code: *under construction.*
+6. Social Network: Modification Exercises
+    * Exercises
+    * Solutions without code: *under construction.*
+    * Solutions with code: *under construction.*
+
+The **data for the movie rating exercises** consists of three tables (movie, reviewer, and rating). It is available as a [database](exercises/movies/data_movies.db), as [SQL code](exercises/movies/data_movies.sql) to (re-)create the database and as a [schema in HTML format](exercises/movies/data_movies.html).
+
+The **data for the social network exercises** also consists of three tables (highschooler, friend, and likes). While the "friend" table shows bi-directional relationships (A likes B and B likes A), the "likes" table contains uni-directional relationships (A likes B, but it's not implied that B likes A unless specified). It is available as a [database](exercises/social/data_social.db), as [SQL code](exercises/social/data_social.sql) to (re-)create the database, as a [schema in HTML format](exercises/social/data_social.html), and as [an image](exercises/social/data_social.png) that visualizes all the "friendship"/"likes" graphs (which is very handy to identify expected results and search for errors).
 
 The Lagunita platform provided a statement of accomplishment when a student has answered at least 90% of the assignments correctly. Each question is worth one point. This statement of accomplishment is not available anymore after the shut down of the Lagunita platform - but please give yourself a pat on the shoulder if you answer more than 90% of them correctly.
 
