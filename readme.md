@@ -37,9 +37,9 @@ The "solutions without code" files show only the expected result set *without* s
 *under construction.*
 
 1. Movie Ratings: Query Exercises
-    * [Exercises](exercises/ex1_movie_queries.sql)
-    * Solutions without code: *under construction.*
-    * Solutions with code: *under construction.*
+    * [Exercises](exercises/ex1_movie_queries.md)
+    * [Solutions without code](exercises/ex1_movie_queries_solutions_without_code.html)
+    * [Solutions with code](exercises/ex1_movie_queries_solutions_with_code.html)
 2. Movie Ratings: Extra Query Exercises
     * [Exercises](exercises/ex2_movie_queries_extra.sql)
     * Solutions without code: *under construction.*
