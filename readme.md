@@ -32,14 +32,12 @@ The course comes with a quick guide that shows how to install SQLite, MySQL, and
 
 The course consists of six sets of exercises with two different data sets.
 
-The "solutions without code" files show only the expected result set *without* showing the code. They can be used to check if your own code leads to the correct result.
-
-*under construction.*
+The repository contains both solutions **with** and **without** code. The latter are helpful to check if your own answer leads to the correct results. The solution files are HTML files that have been rendered with R Markdown / knitr. Of course, you can choose any SQL interface to work on the exercises - a software like "DB Browser for SQLite" may be much more convenient than the notebook format.
 
 1. Movie Ratings: Query Exercises
     * [Exercises](exercises/ex1_movie_queries.md)
-    * [Solutions without code](exercises/ex1_movie_queries_solutions_without_code.nb.html)
-    * [Solutions with code](exercises/ex1_movie_queries_solutions_with_code.nb.html)
+    * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex1_movie_queries_solutions_without_code.nb.html)
+    * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex1_movie_queries_solutions_with_code.nb.html)
 2. Movie Ratings: Extra Query Exercises
     * [Exercises](exercises/ex2_movie_queries_extra.sql)
     * Solutions without code: *under construction.*
