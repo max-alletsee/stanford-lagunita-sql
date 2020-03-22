@@ -8,7 +8,7 @@ Students at your hometown high school have decided to organize their social netw
 
 Your queries will run over a small data set conforming to the schema. The database can be found in the file [social/data_social.db](social/data_social.db). The SQL code to re-create the database can be found in the file [social/data_social.sql](social/data_social.sql). The schema of the database can be found in the file [social/data_social.html](data/data_social.html). Your queries are executed using SQLite, so you must conform to the SQL constructs supported by SQLite.
 
-For your convenience, here is a [social/data_social.png](graph) showing the various connections between the students in our database. 9th graders are blue, 10th graders are green, 11th graders are yellow, and 12th graders are purple. Undirected black edges indicate friendships, and directed red edges indicate that one student likes another student.
+For your convenience, here is a [graph](social/data_social.png) showing the various connections between the students in our database. 9th graders are blue, 10th graders are green, 11th graders are yellow, and 12th graders are purple. Undirected black edges indicate friendships, and directed red edges indicate that one student likes another student.
 
 ## Question 1
 
