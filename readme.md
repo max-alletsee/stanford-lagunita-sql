@@ -39,23 +39,23 @@ The repository contains both solutions **with** and **without** code. The latter
     * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex1_movie_queries_solutions_without_code.nb.html)
     * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex1_movie_queries_solutions_with_code.nb.html)
 2. Movie Ratings: Extra Query Exercises
-    * [Exercises](exercises/ex2_movie_queries_extra.sql)
+    * [Exercises](exercises/ex2_movie_queries_extra.md)
     * Solutions without code: *under construction.*
     * Solutions with code: *under construction.*
 3. Social Network: Query Exercises
-    * Exercises
+    * [Exercises](exercises/ex3_social_queries.md)
     * Solutions without code: *under construction.*
     * Solutions with code: *under construction.*
 4. Social Network: Extra Query Exercises
-    * Exercises
+    * [Exercises](exercises/ex4_social_queries_extra.md)
     * Solutions without code: *under construction.*
     * Solutions with code: *under construction.*
 5. Movie Ratings: Modification Exercises
-    * [Exercises](exercises/ex5_movie_modifications.sql)
+    * [Exercises](exercises/ex5_movie_modifications.md)
     * Solutions without code: *under construction.*
     * Solutions with code: *under construction.*
 6. Social Network: Modification Exercises
-    * Exercises
+    * [Exercises](exercises/ex6_social_modification.md)
     * Solutions without code: *under construction.*
     * Solutions with code: *under construction.*
 
@@ -92,7 +92,7 @@ Below is an overview of the recommended readings for each lecture.
     * Ramakrishnan and Gehrke: chapter 5.4
     * Elmasri and Navathe: chapters 5.1.2 - 5.1.6
     * Silberschatz, Korth, and Sudarshan: chapter 3.8
-5. Subqueries in FROM and SELECT Clauses (same recommended readings as for "Subqueries in WHERE Clause")
+5. Subqueries in FROM and SELECT Clauses *(same recommended readings as for "Subqueries in WHERE Clause")*
     * Ullman and Widom: chapter 6.3
     * Ramakrishnan and Gehrke: chapter 5.4
     * Elmasri and Navathe: chapters 5.1.2 - 5.1.6
