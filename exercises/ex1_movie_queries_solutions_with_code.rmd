@@ -1,6 +1,8 @@
 ---
-title: "SQL Exercise #1: Querying Movie Data - Solutions with Code"
-output: html_notebook
+title: 'SQL Exercise #1: Querying Movie Data - Solutions with Code'
+output:
+  html_document:
+    df_print: paged
 ---
 
 This notebook contains the **solutions with code** for Exercise 1 - Querying Movie Data.

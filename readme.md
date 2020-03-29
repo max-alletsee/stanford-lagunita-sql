@@ -36,12 +36,12 @@ The repository contains both solutions **with** and **without** code. The latter
 
 1. Movie Ratings: Query Exercises
     * [Exercises](exercises/ex1_movie_queries.md)
-    * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex1_movie_queries_solutions_without_code.nb.html)
-    * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex1_movie_queries_solutions_with_code.nb.html)
+    * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex1_movie_queries_solutions_without_code.html)
+    * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex1_movie_queries_solutions_with_code.html)
 2. Movie Ratings: Extra Query Exercises
     * [Exercises](exercises/ex2_movie_queries_extra.md)
-    * Solutions without code: *under construction.*
-    * Solutions with code: *under construction.*
+    * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex2_movie_queries_extra_solutions_without_code.html)
+    * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex2_movie_queries_extra_solutions_with_code.html)
 3. Social Network: Query Exercises
     * [Exercises](exercises/ex3_social_queries.md)
     * Solutions without code: *under construction.*
