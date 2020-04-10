@@ -52,8 +52,8 @@ The repository contains both solutions **with** and **without** code. The latter
     * Solutions with code: *under construction.*
 5. Movie Ratings: Modification Exercises
     * [Exercises](exercises/ex5_movie_modifications.md)
-    * Solutions without code: *under construction.*
-    * Solutions with code: *under construction.*
+    * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex5_movie_modifications_without_code.html)
+    * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex5_movie_modifications_with_code.html)
 6. Social Network: Modification Exercises
     * [Exercises](exercises/ex6_social_modification.md)
     * Solutions without code: *under construction.*

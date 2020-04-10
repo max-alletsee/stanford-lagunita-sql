@@ -1,0 +1,116 @@
+---
+title: 'SQL Exercise #5: Modifying Movie Data - Solutions without Code'
+output:
+  html_document:
+    df_print: paged
+---
+
+This notebook contains the **solutions without code** for Exercise 5 - Modifying Movie Data.
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+
+# Mechanism to prevent permanent edits of the database:
+# 1) Creating an in-memory temporary database and loading the reference database
+# 2) Copying the static database to the temporary in-memory database
+# 3) Closing the connection to the static database
+# 4) Performing all operations on the in-memory database only
+
+db_temp <- dbConnect(RSQLite::SQLite(), ":memory:")
+db_static <- dbConnect(RSQLite::SQLite(), dbname = "movies/data_movies.db")
+
+RSQLite::sqliteCopyDatabase(from = db_static, to = db_temp)
+dbDisconnect(db_static)
+
+knitr::opts_chunk$set(connection = "db_temp")
+```
+
+## Question 1
+
+Add the reviewer Roger Ebert to your database, with an rID of 209.
+
+```{sql, echo = FALSE}
+INSERT INTO Reviewer
+VALUES(209, 'Roger Ebert');
+```
+
+```{sql, echo = FALSE}
+-- Verify that it works.
+
+SELECT * 
+FROM Reviewer;
+```
+
+
+## Question 2
+
+Insert 5-star ratings by James Cameron for all movies in the database. Leave the review date as NULL.
+
+```{sql, echo = FALSE}
+INSERT INTO Rating
+(rID, mID, stars, ratingDate)
+    SELECT Reviewer.rID, Movie.mID, 5 AS stars, NULL AS ratingDate
+    FROM Movie, Reviewer
+    WHERE Reviewer.name = 'James Cameron';
+```
+
+```{sql, echo = FALSE}
+-- Verify that it works.
+
+SELECT * 
+FROM Rating
+WHERE rID IN (SELECT rID From Reviewer WHERE name = 'James Cameron');
+
+```
+
+## Question 3
+
+For all movies that have an average rating of 4 stars or higher, add 25 to the release year. (Update the existing tuples; don't insert new tuples.)
+
+```{sql, echo = FALSE}
+UPDATE Movie
+SET year = year + 25
+WHERE mID IN (
+    SELECT mid
+    FROM Rating
+    GROUP BY mID
+    HAVING AVG(stars) >= 4.0);
+```
+
+```{sql, echo = FALSE}
+-- Verify that it works.
+
+SELECT Rating.mID, Movie.year, AVG(Rating.stars)
+FROM Rating, Movie
+WHERE Rating.mID = Movie.mID
+GROUP BY Rating.mID
+HAVING AVG(Rating.stars) >= 4.0;
+```
+
+## Question 4
+
+Remove all ratings where the movie's year is before 1970 or after 2000, and the rating is fewer than 4 stars.
+
+```{sql, echo = FALSE}
+DELETE FROM Rating
+WHERE stars < 4 AND
+    mid IN (SELECT mid
+            FROM Movie
+            WHERE (year > 2000 OR year < 1970));
+```
+
+```{sql, echo = FALSE}
+-- Verify that it works.
+
+SELECT *
+FROM Rating
+WHERE stars < 4 AND
+    mid IN (SELECT mid
+        FROM Movie
+        WHERE (year > 2000 OR year < 1970));
+```
+
+```{r, echo = FALSE}
+dbDisconnect(db_temp)
+```
