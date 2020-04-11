@@ -44,20 +44,20 @@ The repository contains both solutions **with** and **without** code. The latter
     * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex2_movie_queries_extra_solutions_with_code.html)
 3. Social Network: Query Exercises
     * [Exercises](exercises/ex3_social_queries.md)
-    * Solutions without code: *under construction.*
-    * Solutions with code: *under construction.*
+    * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex3_social_queries_solutions_without_code.html)
+    * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex3_social_queries_solutions_with_code.html)
 4. Social Network: Extra Query Exercises
     * [Exercises](exercises/ex4_social_queries_extra.md)
-    * Solutions without code: *under construction.*
-    * Solutions with code: *under construction.*
+    * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex4_social_queries_extra_solutions_without_code.html)
+    * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex4_social_queries_extra_solutions_with_code.html)
 5. Movie Ratings: Modification Exercises
     * [Exercises](exercises/ex5_movie_modifications.md)
     * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex5_movie_modifications_without_code.html)
     * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex5_movie_modifications_with_code.html)
 6. Social Network: Modification Exercises
     * [Exercises](exercises/ex6_social_modification.md)
-    * Solutions without code: *under construction.*
-    * Solutions with code: *under construction.*
+    * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex6_social_modifications_without_code.html)
+    * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex6_social_modifications_with_code.html)
 
 The **data for the movie rating exercises** consists of three tables (movie, reviewer, and rating). It is available as a [database](exercises/movies/data_movies.db), as [SQL code](exercises/movies/data_movies.sql) to (re-)create the database and as a [schema in HTML format](exercises/movies/data_movies.html).
 
