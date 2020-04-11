@@ -1,0 +1,134 @@
+---
+title: 'SQL Exercise #6: Modifying Social Data - Solutions with Code'
+output:
+  html_document:
+    df_print: paged
+---
+
+This notebook contains the **solutions with code** for Exercise 6 - Modifying Social Data.
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+
+# Mechanism to prevent permanent edits of the database:
+# 1) Creating an in-memory temporary database and loading the reference database
+# 2) Copying the static database to the temporary in-memory database
+# 3) Closing the connection to the static database
+# 4) Performing all operations on the in-memory database only
+
+db_temp <- dbConnect(RSQLite::SQLite(), ":memory:")
+db_static <- dbConnect(RSQLite::SQLite(), dbname = "social/data_social.db")
+
+RSQLite::sqliteCopyDatabase(from = db_static, to = db_temp)
+dbDisconnect(db_static)
+
+knitr::opts_chunk$set(connection = "db_temp")
+```
+
+## Question 1
+
+It's time for the seniors to graduate. Remove all 12th graders from Highschooler.
+
+```{sql}
+DELETE FROM Highschooler
+WHERE grade = 12;
+```
+
+```{sql}
+-- Verify that it works.
+
+SELECT MAX(grade)
+FROM Highschooler;
+```
+
+
+## Question 2
+
+If two students A and B are friends, and A likes B but not vice-versa, remove the Likes tuple.
+
+```{sql}
+DELETE FROM Likes
+WHERE Likes.ID1 IN (
+        SELECT Friend.ID2
+        FROM Friend
+        WHERE Friend.ID1 = Likes.ID2) AND
+    Likes.ID2 IN (
+        SELECT l.ID2
+        FROM Likes AS l
+        WHERE Likes.ID1 = l.ID1) AND
+    Likes.ID1 NOT IN (
+        SELECT l.ID2
+        FROM Likes AS l
+        WHERE Likes.ID2 = l.id1);
+```
+
+```{sql}
+-- Verify that it works.
+
+SELECT *
+FROM Likes
+WHERE Likes.ID1 IN (
+        SELECT Friend.ID2
+        FROM Friend
+        WHERE Friend.ID1 = Likes.ID2) AND
+    Likes.ID2 IN (
+        SELECT l.ID2
+        FROM Likes AS l
+        WHERE Likes.ID1 = l.ID1) AND
+    Likes.ID1 NOT IN (
+        SELECT l.ID2
+        FROM Likes AS l
+        WHERE Likes.ID2 = l.id1);
+```
+
+```{sql}
+-- Verification via the reference solution that was used in the course.
+
+SELECT H1.name, H1.grade, H2.name, H2.grade 
+FROM Likes L, Highschooler H1, Highschooler H2
+WHERE L.ID1 = H1.ID and L.ID2 = H2.ID order by H1.name, H1.grade;
+```
+
+
+## Question 3
+
+For all cases where A is friends with B, and B is friends with C, add a new friendship for the pair A and C. Do not add duplicate friendships, friendships that already exist, or friendships with oneself. (This one is a bit challenging; congratulations if you get it right.)
+
+```{sql}
+INSERT INTO Friend (id1, id2)
+    SELECT DISTINCT f1.ID1 AS id1, f3.ID1 AS id2
+    FROM Friend AS f1, Friend AS f2, Friend AS f3
+    WHERE f2.ID1 IN (
+        SELECT Friend.ID2
+        FROM Friend
+        WHERE f1.ID1 = Friend.ID1
+    ) AND
+        f2.ID1 IN (
+        SELECT Friend.ID2
+        FROM Friend
+        WHERE f3.ID1 = Friend.ID1
+        ) AND 
+        f3.ID1 NOT IN (
+        SELECT Friend.ID2
+        FROM Friend
+        WHERE f1.ID1 = Friend.ID1
+        )
+        AND (f1.ID1 != f3.ID1);
+```
+
+```{sql}
+-- Verification via the reference solution that was used in the course.
+
+SELECT ID, name, grade,
+    (SELECT count(*)
+        FROM Friend
+        WHERE id1 = H.id)
+FROM Highschooler H
+ORDER BY ID;
+
+```
+
+```{r, echo = FALSE}
+dbDisconnect(db_temp)
+```

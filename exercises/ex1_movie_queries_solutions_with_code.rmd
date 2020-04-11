@@ -118,3 +118,7 @@ FROM (SELECT AVG(stars) AS avg_per_movie
 	WHERE year > 1980
 	GROUP BY movie.mID) AS after_1980;
 ```
+
+```{r, echo = FALSE}
+dbDisconnect(db)
+```

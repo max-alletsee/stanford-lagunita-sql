@@ -172,3 +172,8 @@ WHERE m1.director IS NOT NULL AND
         WHERE m2.director IS NOT NULL AND m1.director = m2.director
     );
 ```
+
+
+```{r, echo = FALSE}
+dbDisconnect(db)
+```

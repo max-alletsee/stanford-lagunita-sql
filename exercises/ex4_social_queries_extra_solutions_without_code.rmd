@@ -1,0 +1,103 @@
+---
+title: 'SQL Exercise #4: Querying Social Data, Extra Exercises - Solutions without Code'
+output:
+  html_document:
+    df_print: paged
+---
+
+This notebook contains the **solutions without code** for Exercise 4 - Querying Social Data, Extra Exercises.
+
+```{r setup}
+library(DBI)
+db = dbConnect(RSQLite::SQLite(), dbname = "social/data_social.db")
+knitr::opts_chunk$set(connection = "db")
+```
+
+## Question 1
+
+For every situation where student A likes student B, but student B likes a different student C, return the names and grades of A, B, and C.
+
+```{sql, echo = FALSE}
+SELECT DISTINCT hs1.name, hs1.grade, hs2.name, hs2.grade, hs3.name, hs3.grade 
+FROM Highschooler AS hs1, Highschooler AS hs2, Highschooler AS hs3, Likes AS l1, Likes AS l2
+WHERE l1.ID1 = l2.ID2 AND
+    l1.ID2 != l2.ID1 AND
+	l1.ID1 = hs2.ID AND
+	l1.ID2 = hs3.ID AND
+	l2.ID1 = hs1.ID
+```
+
+## Question 2
+
+Find those students for whom all of their friends are in different grades from themselves. Return the students' names and grades.
+
+```{sql, echo = FALSE}
+SELECT DISTINCT hs1.name, hs1.grade
+FROM Friend, Highschooler AS hs1
+WHERE hs1.grade NOT IN (
+    SELECT hs2.grade
+    FROM Friend, Highschooler AS hs2
+    WHERE Friend.ID1 = hs1.ID AND
+        Friend.ID2 = hs2.ID
+)
+```
+
+## Question 3
+
+What is the average number of friends per student? (Your result should be just one number.)
+
+```{sql, echo = FALSE}
+SELECT AVG(friend_count)
+FROM (SELECT COUNT(ID2) AS friend_count
+    FROM Friend
+    GROUP BY ID1)
+```
+
+## Question 4
+
+Find the number of students who are either friends with Cassandra or are friends of friends of Cassandra. Do not count Cassandra, even though technically she is a friend of a friend.
+
+```{sql, echo = FALSE}
+SELECT COUNT(*)
+FROM (
+    SELECT Highschooler.ID
+    FROM Friend, Highschooler
+    WHERE Friend.ID1 = (SELECT ID FROM Highschooler WHERE name = 'Cassandra') AND
+        Friend.ID2 = Highschooler.ID
+    UNION ALL
+    SELECT Highschooler.ID
+    FROM Friend, Highschooler
+    WHERE Friend.ID1 IN (
+        SELECT Highschooler.ID
+        FROM Friend, Highschooler
+        WHERE Friend.ID1 = (SELECT ID FROM Highschooler WHERE name = 'Cassandra') AND
+            Friend.ID2 = Highschooler.ID
+        ) AND
+        Friend.ID2 = Highschooler.ID AND
+        Highschooler.ID != (SELECT ID FROM Highschooler WHERE name = 'Cassandra')
+    )
+```
+
+## Question 5
+
+Find the name and grade of the student(s) with the greatest number of friends.
+
+```{sql, echo = FALSE}
+SELECT name, grade
+FROM Highschooler
+WHERE ID IN (
+    SELECT ID1
+        FROM Friend
+        GROUP BY ID1
+        HAVING COUNT(ID2) = (
+            SELECT MAX(friend_count) AS friends_max
+            FROM (SELECT COUNT(ID2) AS friend_count
+                FROM Friend
+                GROUP BY ID1)
+        )
+)
+```
+
+```{r, echo = FALSE}
+dbDisconnect(db)
+```
