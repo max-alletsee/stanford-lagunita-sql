@@ -1,6 +1,8 @@
 # Stanford Lagunita: SQL (DB5)
 
-Stanford University used to offer a free and self-paced online course on SQL since 2014 via its Lagunita platform ([link](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/)). The course provides an excellent introduction to SQL, largely thanks to [Prof. Jennifer Widom](https://profiles.stanford.edu/jennifer-widom)'s teaching style and her willingness to explore the topic deeply instead of just quickly rushing over the main commands. (By the way, I am not the only person with this opionion - [see here](https://towardsdatascience.com/how-i-went-from-zero-coding-skills-to-data-scientist-in-6-months-c2207b65f2f3).) However, Stanford decided to retire its Lagunita platform at the end of March 2020. To ensure that future learners can benefit from this course, this repository tries to provide access to the course material.
+Stanford University used to offer a free and self-paced online course on SQL since 2014 via its Lagunita platform ([link](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/)). The course provides an excellent introduction to SQL, largely thanks to [Prof. Jennifer Widom](https://profiles.stanford.edu/jennifer-widom)'s teaching style and her willingness to explore the topic deeply instead of just quickly rushing over the main commands. (By the way, I am not the only person with this opionion - [see here](https://towardsdatascience.com/how-i-went-from-zero-coding-skills-to-data-scientist-in-6-months-c2207b65f2f3).)
+
+Stanford decided to retire its Lagunita platform at the end of March 2020. To ensure that future learners can benefit from this course, this repository tries to provide access to the course material. **Update April 2020:** The course is now available again via [edx.org](https://www.edx.org/course/databases-5-sql).
 
 ## Background
 
@@ -58,6 +60,12 @@ The repository contains both solutions **with** and **without** code. The latter
     * [Exercises](exercises/ex6_social_modification.md)
     * [Solutions without code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex6_social_modifications_without_code.html)
     * [Solutions with code](https://htmlpreview.github.io/?https://github.com/alletsee/stanford-lagunita-sql/blob/master/exercises/ex6_social_modifications_with_code.html)
+
+### Solutions from Others
+
+The files in the list above are the solutions that I created myself during the course. As the course is quite popular, there are plenty of other solutions available on Github. A list of available solutions from other students can be found [here](solutions_from_others.md).
+
+### Data Used in the Exercises
 
 The **data for the movie rating exercises** consists of three tables (movie, reviewer, and rating). It is available as a [database](exercises/movies/data_movies.db), as [SQL code](exercises/movies/data_movies.sql) to (re-)create the database and as a [schema in HTML format](exercises/movies/data_movies.html).
 
